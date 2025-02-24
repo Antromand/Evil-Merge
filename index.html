@@ -2,21 +2,24 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Merge Game</title>
+    <title>Evil Merge</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="mainMenu">
-        <button id="newGameBtn">Новая игра</button>
-        <button id="continueBtn">Продолжить</button>
-    </div>
-    <div id="gameScreen" style="display: none;">
-        <div class="game-header">
-            <button id="exitBtn">В главное меню</button>
-            <div id="score">Очки: 0</div>
-            <div id="nextItem">Следующий: <span id="nextLevel"></span></div>
+    <div id="appContainer">
+        <div id="mainMenu">
+            <h1>Evil Merge</h1>
+            <button id="newGameBtn">Новая игра</button>
+            <button id="continueBtn">Продолжить</button>
         </div>
-        <canvas id="gameCanvas" width="250" height="250"></canvas>
+        <div id="gameScreen" style="display: none;">
+            <div class="game-header">
+                <button id="exitBtn">В главное меню</button>
+                <div id="score">Очки: 0</div>
+                <div id="nextItem">Следующий: <span id="nextLevel"></span></div>
+            </div>
+            <canvas id="gameCanvas" width="250" height="250"></canvas>
+        </div>
     </div>
     <script src="constants.js"></script>
     <script src="grid.js"></script>

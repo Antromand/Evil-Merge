@@ -6,12 +6,54 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #ffffff; /* Фон всего экрана */
+}
+
+#appContainer {
+    width: 600px; /* Фиксированная ширина */
+    height: 800px; /* Фиксированная высота */
+    background-image: url('mainMenu_background.jpg');
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Убираем повторение, если нужно */
+    background-size: cover; /* Изображение покрывает контейнер, сохраняя пропорции */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto; /* Для случаев, если содержимое выходит за пределы */
+    position: relative; /* Для псевдоэлемента */
+}
+
+#appContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(151, 230, 255 , 0.8); /* Полупрозрачный чёрный слой для уменьшения контрастности */
+    z-index: 1; /* Слой поверх фона, но под контентом */
+    /* Фильтр контрастности (если нужно дополнительно уменьшить контраст) */
+    filter: contrast(0.8); /* Уменьшаем контраст на 20% (0.8 = 80% контрастности) */
+}
+
+#mainMenu, #gameScreen {
+    position: relative;
+    z-index: 2; /* Содержимое над псевдоэлементом */
 }
 
 #mainMenu {
     text-align: center;
-    width: 150px; /* Ширина для кнопок */
+    width: 300px; /* Ширина контента */
+    margin-top: 100px;
+}
+
+#mainMenu h1 {
+    font-size: 64px; /* Размер заголовка */
+    color: #4f1f1f; /* Красный цвет для мрачной атмосферы, можно изменить */
+    margin-bottom: 100px; /* Отступ под заголовком */
+    font-family: 'Creepy', Arial, sans-serif; /* Пример шрифта для Хэллоуина, установи подходящий */
 }
 
 #mainMenu button {
@@ -23,7 +65,7 @@ body {
     color: white;
     border: none;
     border-radius: 5px;
-    display: block; /* Кнопки вертикально */
+    /* display: block; /* Кнопки вертикально */
     width: 150px; /* Фиксированная ширина */
     height: 40px; /* Высота кнопки */
 }
@@ -34,7 +76,8 @@ body {
 
 #gameScreen {
     text-align: center;
-    width: 500px; /* Общая ширина игрового экрана */
+    width: 500px; /* Сужаем игровую область, чтобы оставить место для отступов */
+    margin-top: 50px; /* Отступ сверху для размещения в контейнере */
 }
 
 .game-header {
