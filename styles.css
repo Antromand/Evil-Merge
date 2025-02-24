@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+#mainMenu {
+    text-align: center;
+    width: 150px; /* Ширина для кнопок */
+}
+
+#mainMenu button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px 0; /* Вертикальный отступ между кнопками */
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: block; /* Кнопки вертикально */
+    width: 150px; /* Фиксированная ширина */
+    height: 40px; /* Высота кнопки */
+}
+
+#mainMenu button:hover {
+    background-color: #45a049;
+}
+
+#gameScreen {
+    text-align: center;
+    width: 500px; /* Общая ширина игрового экрана */
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 40px; /* Высота хедера */
+}
+
+#exitBtn {
+    font-size: 14px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100px; /* Ширина кнопки */
+    height: 30px; /* Высота кнопки */
+}
+
+#exitBtn:hover {
+    background-color: #45a049;
+}
+
+#score {
+    font-size: 16px;
+    margin: 0;
+    width: 100px; /* Ширина счёта */
+    height: 20px; /* Высота текста */
+}
+
+#gameCanvas {
+    border: 1px solid black;
+    display: block;
+    margin: 0 auto;
+    width: 250px; /* Ширина канваса */
+    height: 250px; /* Высота канваса */
+}
+
+#nextItem {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#nextLevel {
+    width: 30px; /* Ширина квадрата следующего предмета */
+    height: 30px; /* Высота квадрата следующего предмета */
+    display: inline-block;
+}
