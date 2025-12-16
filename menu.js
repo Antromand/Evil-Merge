@@ -20,9 +20,11 @@ function showGameScreen() {
 // Начать новую игру
 function startNewGame() {
     grid = Array(GRID_SIZE).fill().map(() => Array(GRID_SIZE).fill(0));
-    score = 0;
+    lastClick = null;
+    placementCount = 0;
+    totalMergeCount = 0;
     nextItem = generateNextItem();
-    updateScore(0); // Устанавливаем счёт 0 явно
+    resetScoreState();
     updateNextItemDisplay();
     drawGrid();
     showGameScreen();
@@ -33,7 +35,10 @@ function saveSession() {
     const session = {
         grid: grid,
         score: score,
-        nextItem: nextItem
+        nextItem: nextItem,
+        placementCount,
+        totalMergeCount,
+        activeGoal
     };
     localStorage.setItem('mergeGameSession', JSON.stringify(session));
 }
@@ -46,7 +51,12 @@ function loadSession() {
         grid = session.grid;
         score = session.score;
         nextItem = session.nextItem;
-        updateScore(score); // Устанавливаем сохранённый счёт
+        placementCount = session.placementCount || 0;
+        totalMergeCount = session.totalMergeCount || 0;
+        activeGoal = session.activeGoal || createGoal();
+        comboStreak = 0;
+        lastMergeTime = 0;
+        renderScore();
         updateNextItemDisplay();
         drawGrid();
         showGameScreen();
